@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <script>
+            function computerPlay() {
+                // create a variable called compSelection
+                let compSelection = "";
+                // create an int variable called randomNum, which is a randomly selected integer from 1-3
+                let randomNum = Math.floor((Math.random() * 3) + 1);
+                console.log(randomNum);
+                // if random is 1, then set computer selection to rock
+                if (randomNum === 1) {
+                    compSelection = "Rock";
+                    return compSelection;
+                }
+                // if random is 2, then set computer selection to scissors
+                else if (randomNum === 2) {
+                    compSelection = "Scissors";
+                    return compSelection;
+                }
+                // otherwise,  set computer selection to Paper
+                else {
+                    compSelection = "Paper";
+                    return compSelection;
+                }
+            }
+
+        </script>
+    </body>
+</html>
