@@ -11,20 +11,22 @@
                 let compSelection = "";
                 // create an int variable called randomNum, which is a randomly selected integer from 1-3
                 let randomNum = Math.floor((Math.random() * 3) + 1);
-                console.log(randomNum);
                 // if random is 1, then set computer selection to rock
                 if (randomNum === 1) {
                     compSelection = "Rock";
+                    console.log("Computer chooses " + compSelection);
                     return compSelection;
                 }
                 // if random is 2, then set computer selection to scissors
                 else if (randomNum === 2) {
                     compSelection = "Scissors";
+                    console.log("Computer chooses " + compSelection);
                     return compSelection;
                 }
                 // otherwise,  set computer selection to Paper
                 else {
                     compSelection = "Paper";
+                    console.log("Computer chooses " + compSelection);
                     return compSelection;
                 }
             }
@@ -36,9 +38,9 @@
                 //create a variable called roundResult
                 let roundResult = "";
                 //create a variable called lowerPlayerSelection which converts playerSelection to lower case. This way, it's case insensitive
-                let lowerPlayerSelection = playerSelection.toLowerCase();
+                let lowerPlayerSelection = "rock";
                 //if lowerPlayerSelection is not equal to rock, paper, or scissors 
-                if (lowerPlayerSelection != "rock" || "paper" || "scissors"); {
+                if (lowerPlayerSelection !== "rock" && lowerPlayerSelection !== "paper" && lowerPlayerSelection !== "scissors") {
                     //return "you inputted an invalid value!"
                     return {
                         error: true,
@@ -52,17 +54,16 @@
                         //create new switch statement
                             switch (computerSelection) {
                                 //case 1: computerSelection = rock
-                                case rock:
-                                //return "it's a tie, play again"
-                                    roundResult = "tie"
+                                case "Rock":
+                                    return "It's a tie, play again"
                                     break;
-                                case paper: 
+                                case "Paper": 
                                 //case 2: computerSelection = paper
-                                    roundResult = "loss"
+                                    return "You lose"
                                     break;
-                                case scissors: 
+                                case "Scissors": 
                                 //case 3: computerSelection = scissors
-                                    roundResult = "win" 
+                                    return "You Win!"
                                     break;
                             }
                         break;
@@ -70,16 +71,16 @@
                         case "paper": 
                             switch (computerSelection) {
                                 //case 1: computerSelection = rock
-                                case "rock":
-                                    roundResult = "win"
+                                case "Rock":
+                                    return "You Win!"
                                     break;
-                                case paper: 
+                                case "Paper": 
                                 //case 2: computerSelection = paper
-                                    roundResult = "tie"
+                                    return "It's a tie, play again"
                                     break;
-                                case scissors: 
+                                case "Scissors": 
                                 //case 3: computerSelection = scissors
-                                    roundResult = "loss" 
+                                    return "You lose"
                                     break;
                             }
                         break;
@@ -87,16 +88,16 @@
                         default: 
                             switch (computerSelection) {
                                 //case 1: computerSelection = rock
-                                case "rock":
-                                    roundResult = "loss"
+                                case "Rock":
+                                    return "You lose"
                                     break;
-                                case paper: 
+                                case "Paper": 
                                 //case 2: computerSelection = paper
-                                    roundResult = "win"
+                                    return "You Win!"
                                     break;
-                                case scissors: 
+                                case "Scissors": 
                                 //case 3: computerSelection = scissors
-                                    roundResult = "tie" 
+                                    return "It's a tie, play again"
                                     break;
                             }
                     break;
