@@ -29,6 +29,93 @@
                 }
             }
 
+
+
+            // create function called playRound() which takes 2 parameters: playerSelection and computerSelection
+            function playRound(playerSelection, computerSelection) {
+                //create a variable called roundResult
+                let roundResult = "";
+                //create a variable called lowerPlayerSelection which converts playerSelection to lower case. This way, it's case insensitive
+                let lowerPlayerSelection = playerSelection.toLowerCase();
+                //if lowerPlayerSelection is not equal to rock, paper, or scissors 
+                if (lowerPlayerSelection != "rock" || "paper" || "scissors"); {
+                    //return "you inputted an invalid value!"
+                    return {
+                        error: true,
+                        message: "you inputted an invalid value"
+                    }
+                //else run this switch statement
+                } else {
+                    switch (lowerPlayerSelection) {
+                        //case 1: lowerPlayerSelection = rock
+                        case "rock":
+                        //create new switch statement
+                            switch (computerSelection) {
+                                //case 1: computerSelection = rock
+                                case rock:
+                                //return "it's a tie, play again"
+                                    roundResult = "tie"
+                                    break;
+                                case paper: 
+                                //case 2: computerSelection = paper
+                                    roundResult = "loss"
+                                    break;
+                                case scissors: 
+                                //case 3: computerSelection = scissors
+                                    roundResult = "win" 
+                                    break;
+                            }
+                        break;
+                        //same logic, but applied to paper and scissors choices for the player
+                        case "paper": 
+                            switch (computerSelection) {
+                                //case 1: computerSelection = rock
+                                case "rock":
+                                    roundResult = "win"
+                                    break;
+                                case paper: 
+                                //case 2: computerSelection = paper
+                                    roundResult = "tie"
+                                    break;
+                                case scissors: 
+                                //case 3: computerSelection = scissors
+                                    roundResult = "loss" 
+                                    break;
+                            }
+                        break;
+                        //playerSelection = scissors
+                        default: 
+                            switch (computerSelection) {
+                                //case 1: computerSelection = rock
+                                case "rock":
+                                    roundResult = "loss"
+                                    break;
+                                case paper: 
+                                //case 2: computerSelection = paper
+                                    roundResult = "win"
+                                    break;
+                                case scissors: 
+                                //case 3: computerSelection = scissors
+                                    roundResult = "tie" 
+                                    break;
+                            }
+                    break;
+                    }
+                }
+                            
+
+                    //case 2: lowerPlayerSelection = paper
+                        //repeat former algorithm, but with new logic
+            }
+
+
+
+
+
+
+
+
+
         </script>
     </body>
 </html>
