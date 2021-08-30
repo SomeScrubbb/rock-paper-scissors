@@ -128,7 +128,7 @@
             //create function called game()
             function game() {
                 //create while loop that will loop over the playRound() function until the game is over
-                while (playerScore < 3 || computerScore < 3) {
+                while (playerScore < 3 && computerScore < 3) {
                     //call on promptPlayer() and store the value in a new variable called playerChoice
                     let playerChoice = promptPlayer();
                     //call on playRound()
