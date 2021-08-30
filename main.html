@@ -22,7 +22,7 @@
                     compSelection = "Scissors";
                     console.log("Computer chooses " + compSelection);
                     return compSelection;
-                }
+                }  
                 // otherwise,  set computer selection to Paper
                 else {
                     compSelection = "Paper";
@@ -31,87 +31,133 @@
                 }
             }
 
+            //create int variable called playerScore
+            let playerScore = 0;
+            //create int variable called computerScore
+            let computerScore = 0;
 
 
             // create function called playRound() which takes 2 parameters: playerSelection and computerSelection
             function playRound(playerSelection, computerSelection) {
-                //create a variable called roundResult
-                let roundResult = "";
-                //create a variable called lowerPlayerSelection which converts playerSelection to lower case. This way, it's case insensitive
-                let lowerPlayerSelection = "rock";
-                //if lowerPlayerSelection is not equal to rock, paper, or scissors 
-                if (lowerPlayerSelection !== "rock" && lowerPlayerSelection !== "paper" && lowerPlayerSelection !== "scissors") {
-                    //return "you inputted an invalid value!"
-                    return {
-                        error: true,
-                        message: "you inputted an invalid value"
-                    }
-                //else run this switch statement
-                } else {
-                    switch (lowerPlayerSelection) {
-                        //case 1: lowerPlayerSelection = rock
-                        case "rock":
-                        //create new switch statement
-                            switch (computerSelection) {
-                                //case 1: computerSelection = rock
-                                case "Rock":
-                                    return "It's a tie, play again"
-                                    break;
-                                case "Paper": 
-                                //case 2: computerSelection = paper
-                                    return "You lose"
-                                    break;
-                                case "Scissors": 
-                                //case 3: computerSelection = scissors
-                                    return "You Win!"
-                                    break;
-                            }
-                        break;
-                        //same logic, but applied to paper and scissors choices for the player
-                        case "paper": 
-                            switch (computerSelection) {
-                                //case 1: computerSelection = rock
-                                case "Rock":
-                                    return "You Win!"
-                                    break;
-                                case "Paper": 
-                                //case 2: computerSelection = paper
-                                    return "It's a tie, play again"
-                                    break;
-                                case "Scissors": 
-                                //case 3: computerSelection = scissors
-                                    return "You lose"
-                                    break;
-                            }
-                        break;
-                        //playerSelection = scissors
-                        default: 
-                            switch (computerSelection) {
-                                //case 1: computerSelection = rock
-                                case "Rock":
-                                    return "You lose"
-                                    break;
-                                case "Paper": 
-                                //case 2: computerSelection = paper
-                                    return "You Win!"
-                                    break;
-                                case "Scissors": 
-                                //case 3: computerSelection = scissors
-                                    return "It's a tie, play again"
-                                    break;
-                            }
+                //create switch statement that runs through all possibilities
+                switch (playerSelection) {
+                    //case 1: lowerPlayerSelection = rock
+                    case "rock":
+                    //create new switch statement
+                        switch (computerSelection) {
+                            //case 1: computerSelection = rock
+                            case "Rock":
+                                return "It's a tie, play again"
+                                break;
+                            case "Paper": 
+                            //case 2: computerSelection = paper
+                                computerScore++;
+                                return "You lose"
+                                break;
+                            case "Scissors": 
+                            //case 3: computerSelection = scissors
+                                playerScore++;
+                                return "You Win!"
+                                break;
+                        }
                     break;
+                    //same logic, but applied to paper and scissors choices for the player
+                    case "paper": 
+                        switch (computerSelection) {
+                            //case 1: computerSelection = rock
+                            case "Rock":
+                                playerScore++;
+                                return "You Win!"
+                                break;
+                            case "Paper": 
+                            //case 2: computerSelection = paper
+                                return "It's a tie, play again"
+                                break;
+                            case "Scissors": 
+                            //case 3: computerSelection = scissors
+                                computerScore++;
+                                return "You lose"
+                                break;
+                        }
+                    break;
+                    //playerSelection = scissors
+                    default: 
+                        switch (computerSelection) {
+                            //case 1: computerSelection = rock
+                            case "Rock":
+                                computerScore++;
+                                return "You lose"
+                                break;
+                            case "Paper": 
+                            //case 2: computerSelection = paper
+                                playerScore++;
+                                return "You Win!"
+                                break;
+                            case "Scissors": 
+                            //case 3: computerSelection = scissors
+                                return "It's a tie, play again"
+                                break;
+                        }
+                    break;
+                }
+            }
+            
+
+            
+            //create function called promptPlayer()
+            function promptPlayer() {
+                //prompt the player for their input and store it in a variable called playerSelection
+                let playerSelection = prompt("What do you choose? Rock, Paper, or Scissors?")
+                //while the value is invalid, keep prompting the player
+                while (playerSelection.toLowerCase() !== "rock" && playerSelection.toLowerCase() !== "paper" && playerSelection.toLowerCase() !== "scissors") {
+                    let playerSelection = prompt("You inputted an invalid value. What do you choose? Rock, Paper, or Scissors?")
+                    //if they inputting a valid value
+                    if (playerSelection.toLowerCase() == "rock" || playerSelection.toLowerCase() == "paper" || playerSelection.toLowerCase() == "scissors") {
+                        //return the lowercase version of their selection
+                        return playerSelection.toLowerCase();
+                        break;
                     }
                 }
-                            
+                //if the value was correct, then skip the while loop and just return it
+                return playerSelection.toLowerCase();
+            }
 
-                    //case 2: lowerPlayerSelection = paper
-                        //repeat former algorithm, but with new logic
+            //create function called game()
+            function game() {
+                //create while loop that will loop over the playRound() function until the game is over
+                while (playerScore < 3 || computerScore < 3) {
+                    //call on promptPlayer() and store the value in a new variable called playerChoice
+                    let playerChoice = promptPlayer();
+                    //call on playRound()
+                    playRound(playerChoice, computerPlay);
+                    //log the winners of each round
+                    console.log("The current score is " + playerScore + " for you and " + computerScore + " for the computer.")
+                }
+                //once the game is over/the while loop finishes, log who wins
+                //if the player won best out of 5, log the player won
+                if (playerScore === 3) {
+                    console.log("You win!")
+                    return
+                } else {
+                    console.log("You lose")
+                    return
+                }
             }
 
 
 
 
+
+
+                //create int variable called playerScore
+                //create int variable called computerScore
+                //create while loop that will loop over the playRound() function until the game is over
+                //before calling on playRound(), prompt the user for their choice and store this in a new variable called playerSelection
+                //create a new variable called lowerPlayerSelection, and store a lowercase version of playerSelection in it
+                //if lowerPlayerSelection is not rock, paper, or scissors {
+                    //send a message saying they inputted an invalid value
+                    //prompt for their input again
+                //else, call on playRound() with lowerPlayerSelection and computerPlay() as the parameters
 
 
 
