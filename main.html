@@ -1,171 +1,43 @@
 <!DOCTYPE html> 
 <html>
     <head>
-
+        <style>
+            div {
+                font-family: 'Courier New', Courier, monospace
+            }
+            #gameResult {
+                color: green;
+            }
+            #center {
+                margin: auto;
+            }
+        </style>
+        <script src="script.js" defer></script>
     </head>
 
     <body>
-        <script>
-            function computerPlay() {
-                // create a variable called compSelection
-                let compSelection = "";
-                // create an int variable called randomNum, which is a randomly selected integer from 1-3
-                let randomNum = Math.floor((Math.random() * 3) + 1);
-                // if random is 1, then set computer selection to rock
-                if (randomNum === 1) {
-                    compSelection = "Rock";
-                    console.log("Computer chooses " + compSelection);
-                    return compSelection;
-                }
-                // if random is 2, then set computer selection to scissors
-                else if (randomNum === 2) {
-                    compSelection = "Scissors";
-                    console.log("Computer chooses " + compSelection);
-                    return compSelection;
-                }  
-                // otherwise,  set computer selection to Paper
-                else {
-                    compSelection = "Paper";
-                    console.log("Computer chooses " + compSelection);
-                    return compSelection;
-                }
-            }
+        <div id="button-container">
+            <button id="game-starter">Start Game</button>
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
 
-            //create int variable called playerScore
-            let playerScore = 0;
-            //create int variable called computerScore
-            let computerScore = 0;
+        <div id="computer-choice">
 
-
-            // create function called playRound() which takes 2 parameters: playerSelection and computerSelection
-            function playRound(playerSelection, computerSelection) {
-                //create switch statement that runs through all possibilities
-                switch (playerSelection) {
-                    //case 1: lowerPlayerSelection = rock
-                    case "rock":
-                    //create new switch statement
-                        switch (computerSelection) {
-                            //case 1: computerSelection = rock
-                            case "Rock":
-                                return "It's a tie, play again"
-                                break;
-                            case "Paper": 
-                            //case 2: computerSelection = paper
-                                computerScore++;
-                                return "You lose"
-                                break;
-                            case "Scissors": 
-                            //case 3: computerSelection = scissors
-                                playerScore++;
-                                return "You Win!"
-                                break;
-                        }
-                    break;
-                    //same logic, but applied to paper and scissors choices for the player
-                    case "paper": 
-                        switch (computerSelection) {
-                            //case 1: computerSelection = rock
-                            case "Rock":
-                                playerScore++;
-                                return "You Win!"
-                                break;
-                            case "Paper": 
-                            //case 2: computerSelection = paper
-                                return "It's a tie, play again"
-                                break;
-                            case "Scissors": 
-                            //case 3: computerSelection = scissors
-                                computerScore++;
-                                return "You lose"
-                                break;
-                        }
-                    break;
-                    //playerSelection = scissors
-                    default: 
-                        switch (computerSelection) {
-                            //case 1: computerSelection = rock
-                            case "Rock":
-                                computerScore++;
-                                return "You lose"
-                                break;
-                            case "Paper": 
-                            //case 2: computerSelection = paper
-                                playerScore++;
-                                return "You Win!"
-                                break;
-                            case "Scissors": 
-                            //case 3: computerSelection = scissors
-                                return "It's a tie, play again"
-                                break;
-                        }
-                    break;
-                }
-            }
+        </div>
+    
+        <div id="round-result">
             
+        </div>
 
-            
-            //create function called promptPlayer()
-            function promptPlayer() {
-                //prompt the player for their input and store it in a variable called playerSelection
-                let playerSelection = prompt("What do you choose? Rock, Paper, or Scissors?");
-                //create lowercase variable called lowerPlayerSelection
-                let lowerPlayerSelection = playerSelection.toLowerCase();
-                //while the value is invalid, keep prompting the player
-                while (lowerPlayerSelection !== "rock" && lowerPlayerSelection !== "paper" && lowerPlayerSelection !== "scissors") {
-                    let playerSelection = prompt("You inputted an invalid value. What do you choose? Rock, Paper, or Scissors?")
-                    //if they inputting a valid value
-                    let lowerPlayerSelection = playerSelection.toLowerCase();
-                    if (lowerPlayerSelection == "rock" || lowerPlayerSelection == "paper" || lowerPlayerSelection == "scissors") {
-                        //return the lowercase version of their selection
-                        return lowerPlayerSelection;
-                        break;
-                    }
-                }
-                //if the value was correct, then skip the while loop and just return it
-                return lowerPlayerSelection;
-            }
+        <div id="scorecard">
 
-            //create function called game()
-            function game() {
-                //create while loop that will loop over the playRound() function until the game is over
-                while (playerScore < 3 && computerScore < 3) {
-                    //call on promptPlayer() and store the value in a new variable called playerChoice
-                    let playerChoice = promptPlayer();
-                    //call on playRound()
-                    playRound(playerChoice, computerPlay());
-                    //log the winners of each round
-                    console.log("The current score is " + playerScore + " for you and " + computerScore + " for the computer.")
-                }
-                //once the game is over/the while loop finishes, log who wins
-                //if the player won best out of 5, log the player won
-                if (playerScore === 3) {
-                    console.log("You win!")
-                    return
-                } else if (computerScore === 3) {
-                    console.log("You lose")
-                    return
-                }
-            }
+        </div>
 
+        <h3 id="gameResult">
 
+        </h3>
 
-
-
-
-                //create int variable called playerScore
-                //create int variable called computerScore
-                //create while loop that will loop over the playRound() function until the game is over
-                //before calling on playRound(), prompt the user for their choice and store this in a new variable called playerSelection
-                //create a new variable called lowerPlayerSelection, and store a lowercase version of playerSelection in it
-                //if lowerPlayerSelection is not rock, paper, or scissors {
-                    //send a message saying they inputted an invalid value
-                    //prompt for their input again
-                //else, call on playRound() with lowerPlayerSelection and computerPlay() as the parameters
-
-
-
-
-
-        </script>
     </body>
 </html>
