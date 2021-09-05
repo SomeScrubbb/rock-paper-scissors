@@ -1,0 +1,21 @@
+div {
+    font-family: 'Courier New', Courier, monospace
+}
+#gameResult {
+    color: green;
+}
+#center {
+    margin: auto;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#main-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

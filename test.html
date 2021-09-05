@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+
+<body>
+    <script>
+        function promptPlayer() {
+            let playerSelection = prompt("What do you choose? Rock, Paper, or Scissors?")
+            while (playerSelection.toLowerCase() !== "rock" && playerSelection.toLowerCase() !== "paper" && playerSelection.toLowerCase() !== "scissors") {
+                let playerSelection = prompt("What do you choose? Rock, Paper, or Scissors?")
+                if (playerSelection.toLowerCase() == "rock" || playerSelection.toLowerCase() == "paper" || playerSelection.toLowerCase() == "scissors") {
+                    break;
+                }
+            }
+            return playerSelection.toLowerCase;
+        }
+    </script>
+</body>
